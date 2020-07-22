@@ -1,29 +1,31 @@
+# class Table
 class Table
-  attr_reader :border_left, :border_right, :border_top, :border_bottom
+  attr_reader :border_left, :border_right, :border_top, :border_bottom, :directions
+  attr_writer :robot
 
-  def initialize(size, robot = nil)
+  def initialize(length, width)
     @border_left    = 0
-    @border_right   = size
-    @border_top     = size
+    @border_right   = length
+    @border_top     = width
     @border_bottom  = 0
-    @robot = robot
+    @directions     = { north: 'NORTH', east: 'EAST', south: 'SOUTH', west: 'WEST' }.freeze
   end
 
-  def robot_within_boundary?
-    return unless has_robot?
-
-    robot_within_horizontal_range? && robot_within_vertial_range?
+  def within_ranges?(pos_x, pos_y)
+    within_horizontal_range?(pos_x) && within_vertical_range?(pos_y)
   end
 
-  def has_robot?
-    !@robot.nil?
+  def valid_direction?(direction)
+    @directions.values.include?(direction)
   end
 
-  def robot_within_horizontal_range?
-    @border_left < @robot.position_x && @robot.position_x < @border_right
+  private
+
+  def within_horizontal_range?(pos_x)
+    @border_left <= pos_x && pos_x < @border_right
   end
 
-  def robot_within_vertial_range?
-    @border_bottom < @robot.position_y && @robot.position_y < @border_top
+  def within_vertical_range?(pos_y)
+    @border_bottom <= pos_y && pos_y < @border_top
   end
 end
