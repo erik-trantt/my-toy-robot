@@ -10,14 +10,20 @@ class Controller
   end
 
   def move
+    return unless @robot.placed?
+
     handle_move
   end
 
   def left
+    return unless @robot.placed?
+
     @robot.turn_left
   end
 
   def right
+    return unless @robot.placed?
+
     @robot.turn_right
   end
 
@@ -39,7 +45,7 @@ class Controller
   end
 
   def valid_robot?
-    @robot.attributes? && valid_position?(@robot.attributes)
+    @robot.placed? && valid_position?(@robot.attributes)
   end
 
   private
