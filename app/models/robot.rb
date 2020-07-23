@@ -1,6 +1,6 @@
 # class Robot
 class Robot
-  attr_reader :errors
+  attr_reader :errors, :pos_x, :pos_y, :facing
 
   def initialize(table, attributes = {})
     @table = table
@@ -55,10 +55,6 @@ class Robot
       pos_y: @pos_y,
       facing: @facing
     }
-  end
-
-  def attributes?
-    !(@pos_x && @pos_y && @facing).nil?
   end
 
   private
