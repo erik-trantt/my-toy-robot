@@ -7,7 +7,9 @@ class Table
   end
 
   def position_valid?(position)
-    within_horizontal_range?(position.x) && within_vertical_range?(position.y)
+    !position.nil? &&
+      within_horizontal_range?(position.x) &&
+      within_vertical_range?(position.y)
   end
 
   private
