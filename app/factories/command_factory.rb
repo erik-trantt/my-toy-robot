@@ -15,19 +15,15 @@ class CommandFactory
   end
 
   def parse(input)
-    command = nil
-
     case input
     when PLACE_COMMAND_PATTERN then
       # destructuring array into variables: X, Y, facing direction
       _input, x, y, facing = input.match(PLACE_COMMAND_PATTERN).to_a
-      command = PlaceCommand.new(@table, @robot, Position.new(x.to_i, y.to_i, facing))
-    when 'MOVE' then command = MoveCommand.new(@table, @robot)
-    when 'LEFT' then command = LeftCommand.new(@robot)
-    when 'RIGHT' then command = RightCommand.new(@robot)
-    when 'REPORT' then command = ReportCommand.new(@robot)
+      PlaceCommand.new(@table, @robot, Position.new(x.to_i, y.to_i, facing))
+    when 'MOVE' then MoveCommand.new(@table, @robot)
+    when 'LEFT' then LeftCommand.new(@robot)
+    when 'RIGHT' then RightCommand.new(@robot)
+    when 'REPORT' then ReportCommand.new(@robot)
     end
-
-    command
   end
 end

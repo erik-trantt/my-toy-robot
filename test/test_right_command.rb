@@ -56,48 +56,59 @@ describe RightCommand, '#execute' do
     _(actual).must_equal expected
   end
   
-  it 'turn 1 times to EAST when facing NORTH' do
-    position = Position.new(1, 1, 'NORTH')
-    PlaceCommand.new(@table, @robot, position).execute
-    1.times { RightCommand.new(@robot).execute }
+  describe 'turn multiple times' do
 
-    actual = @robot.report_position
-    expected = '1,1,EAST'
+    it 'turn 1 times to EAST when facing NORTH' do
+      position = Position.new(1, 1, 'NORTH')
+      PlaceCommand.new(@table, @robot, position).execute
+      1.times { RightCommand.new(@robot).execute }
 
-    _(actual).must_equal expected
+      actual = @robot.report_position
+      expected = '1,1,EAST'
+
+      _(actual).must_equal expected
+    end
+    
+    it 'turn 2 times to SOUTH when facing NORTH' do
+      position = Position.new(1, 1, 'NORTH')
+      PlaceCommand.new(@table, @robot, position).execute
+      2.times { RightCommand.new(@robot).execute }
+
+      actual = @robot.report_position
+      expected = '1,1,SOUTH'
+
+      _(actual).must_equal expected
+    end
+    
+    it 'turn 3 times to WEST when facing NORTH' do
+      position = Position.new(1, 1, 'NORTH')
+      PlaceCommand.new(@table, @robot, position).execute
+      3.times { RightCommand.new(@robot).execute }
+
+      actual = @robot.report_position
+      expected = '1,1,WEST'
+
+      _(actual).must_equal expected
+    end
+    
+    it 'turn 4 times to NORTH when facing NORTH' do
+      position = Position.new(1, 1, 'NORTH')
+      PlaceCommand.new(@table, @robot, position).execute
+      4.times { RightCommand.new(@robot).execute }
+
+      actual = @robot.report_position
+      expected = '1,1,NORTH'
+
+      _(actual).must_equal expected
+    end
+
   end
-  
-  it 'turn 2 times to SOUTH when facing NORTH' do
-    position = Position.new(1, 1, 'NORTH')
-    PlaceCommand.new(@table, @robot, position).execute
-    2.times { RightCommand.new(@robot).execute }
 
-    actual = @robot.report_position
-    expected = '1,1,SOUTH'
+  it 'return nil (ignore RightCommand) if position is nothing' do
+    right_command = RightCommand.new(@robot)
 
-    _(actual).must_equal expected
+    actual = right_command.execute
+
+    _(actual).must_be_nil
   end
-  
-  it 'turn 3 times to WEST when facing NORTH' do
-    position = Position.new(1, 1, 'NORTH')
-    PlaceCommand.new(@table, @robot, position).execute
-    3.times { RightCommand.new(@robot).execute }
-
-    actual = @robot.report_position
-    expected = '1,1,WEST'
-
-    _(actual).must_equal expected
-  end
-  
-  it 'turn 4 times to NORTH when facing NORTH' do
-    position = Position.new(1, 1, 'NORTH')
-    PlaceCommand.new(@table, @robot, position).execute
-    4.times { RightCommand.new(@robot).execute }
-
-    actual = @robot.report_position
-    expected = '1,1,NORTH'
-
-    _(actual).must_equal expected
-  end
-
 end
