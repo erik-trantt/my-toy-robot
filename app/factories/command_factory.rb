@@ -7,6 +7,8 @@ require_relative '../models/report_command'
 # class Controller
 # app controller
 class CommandFactory
+  PLACE_COMMAND_PATTERN = /^PLACE (\d),(\d),(NORTH|SOUTH|EAST|WEST)$/.freeze
+
   def initialize(table, robot)
     @table = table
     @robot = robot
@@ -16,9 +18,9 @@ class CommandFactory
     command = nil
 
     case input
-    when /^PLACE/ then
-      pattern = /^PLACE (\d),(\d),(NORTH|SOUTH|EAST|WEST)$/
-      _input, x, y, facing = input.match(pattern).to_a
+    when PLACE_COMMAND_PATTERN then
+      # destructuring array into variables: X, Y, facing direction
+      _input, x, y, facing = input.match(PLACE_COMMAND_PATTERN).to_a
       command = PlaceCommand.new(@table, @robot, Position.new(x.to_i, y.to_i, facing))
     when 'MOVE' then command = MoveCommand.new(@table, @robot)
     when 'LEFT' then command = LeftCommand.new(@robot)
