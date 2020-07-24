@@ -6,10 +6,10 @@ task :rubocop do
 end
 
 Rake::TestTask.new(:test_unit) do |t|
-  t.libs << 'app'
+  # t.libs << 'app'
   t.libs << 'test'
   t.test_files = FileList['test/**/test_*.rb']
-  t.options = '--verbose --color'
+  t.options = '--verbose --pride'
 end
 
 task default: [:rubocop]
