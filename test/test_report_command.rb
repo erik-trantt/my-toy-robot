@@ -11,8 +11,7 @@ describe ReportCommand, '#execute' do
 
   it 'return position as text with a VALID position' do
     position = Position.new(1, 3, 'NORTH')
-    place_command = PlaceCommand.new(@table, @robot, position)
-    place_command.execute
+    PlaceCommand.new(@table, @robot, position).execute
 
     report_command = ReportCommand.new(@robot)
     expected = "1,3,NORTH\n"
@@ -20,13 +19,22 @@ describe ReportCommand, '#execute' do
     _{report_command.execute}.must_output expected
   end
 
-  it 'return "Not in place" with an INVALID position' do
+  it 'position does not change with an INVALID position' do
+    position = Position.new(1, 3, 'NORTH')
+    PlaceCommand.new(@table, @robot, position).execute
+
     invalid_position = Position.new(1, -3, 'NORTH')
-    place_command = PlaceCommand.new(@table, @robot, invalid_position)
-    place_command.execute
+    PlaceCommand.new(@table, @robot, invalid_position).execute
 
     report_command = ReportCommand.new(@robot)
-    expected = "Not in place\n"
+    expected = "1,3,NORTH\n"
+
+    _{report_command.execute}.must_output expected
+  end
+
+  it 'return nil (ignore ReportCommand) if position is nothing' do
+    report_command = ReportCommand.new(@robot)
+    expected = nil
 
     _{report_command.execute}.must_output expected
   end
