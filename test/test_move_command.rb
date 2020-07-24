@@ -138,4 +138,11 @@ describe MoveCommand, '#execute valid cases' do
     _(actual).must_equal expected
   end
 
+  it 'return nil (ignore MoveCommand) if position is nothing' do
+    move_command = MoveCommand.new(@table, @robot)
+    
+    actual = move_command.execute
+
+    _(actual).must_be_nil
+  end
 end

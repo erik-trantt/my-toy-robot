@@ -100,4 +100,12 @@ describe LeftCommand, '#execute' do
     _(actual).must_equal expected
   end
 
+  it 'return nil (ignore LeftCommand) if position is nothing' do
+    left_command = LeftCommand.new(@robot)
+
+    actual = left_command.execute
+
+    _(actual).must_be_nil
+  end
+
 end

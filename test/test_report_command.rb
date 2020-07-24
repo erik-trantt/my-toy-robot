@@ -34,8 +34,9 @@ describe ReportCommand, '#execute' do
 
   it 'return nil (ignore ReportCommand) if position is nothing' do
     report_command = ReportCommand.new(@robot)
-    expected = nil
+    
+    actual = report_command.execute
 
-    _{report_command.execute}.must_output expected
+    _(actual).must_be_nil
   end
 end
