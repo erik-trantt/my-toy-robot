@@ -33,4 +33,4 @@ AllCops:
   Exclude:
     - '**/Rakefile'
     - '**/Gemfile'
-    - '**/spec/**/*'
+    - '**/test/**/*'
