@@ -12,16 +12,20 @@ class CommandFactory
     @robot = robot
   end
 
-  def parse(command)
-    case command
+  def parse(input)
+    command = nil
+
+    case input
     when /^PLACE/ then
       pattern = /^PLACE (\d),(\d),(NORTH|SOUTH|EAST|WEST)$/
-      _command, x, y, facing = command.match(pattern).to_a
-      PlaceCommand.new(@table, @robot, Position.new(x.to_i, y.to_i, facing))
-    when 'MOVE' then MoveCommand.new(@table, @robot)
-    when 'LEFT' then LeftCommand.new(@robot)
-    when 'RIGHT' then RightCommand.new(@robot)
-    when 'REPORT' then ReportCommand.new(@robot)
+      _input, x, y, facing = input.match(pattern).to_a
+      command = PlaceCommand.new(@table, @robot, Position.new(x.to_i, y.to_i, facing))
+    when 'MOVE' then command = MoveCommand.new(@table, @robot)
+    when 'LEFT' then command = LeftCommand.new(@robot)
+    when 'RIGHT' then command = RightCommand.new(@robot)
+    when 'REPORT' then command = ReportCommand.new(@robot)
     end
+
+    command
   end
 end
