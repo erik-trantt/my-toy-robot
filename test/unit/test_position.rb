@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative '../app/models/position'
+require_relative '../../app/models/position'
 
 describe Position, '#==' do
   it 'compare 2 position' do
