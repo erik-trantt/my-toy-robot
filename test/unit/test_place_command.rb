@@ -1,8 +1,8 @@
 require 'minitest/autorun'
-require_relative '../app/models/place_command'
-require_relative '../app/models/table'
-require_relative '../app/models/robot'
-require_relative '../app/models/position'
+require_relative '../../app/models/place_command'
+require_relative '../../app/models/table'
+require_relative '../../app/models/robot'
+require_relative '../../app/models/position'
 
 describe PlaceCommand, '#execute' do
   before do
