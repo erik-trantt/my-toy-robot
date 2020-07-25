@@ -1,13 +1,19 @@
 # Toy Robot Simulator
 
 ## Table of contents
+  - [Description](#description)
+  - [Setup](#setup)
+  - [Running the app](#running-the-app)
+  - [Running the tests](#running-the-tests)
+  - [Test cases](#test-cases)
+    - [Example D](#example-d)
+    - [Example E](#example-e)
+    - [Example F](#example-f)
+  - [Notes](#notes)
 
-* [Original problem description](./PROBLEM.md)
-* [Setup](#setup)
-* [Running the app](#running-the-app)
-* [Running the tests](#running-the-tests)
-* [Test cases](#test-cases)
-* [Notes](#notes)
+## Description
+
+This application is a simulation of a toy robot moving on a square tabletop with a dimension of 5 units x 5 units. The original problem description, constraints and examples of inputs and outputs can be found [here](./PROBLEM.md)
 
 ## Setup
 
