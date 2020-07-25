@@ -2,7 +2,7 @@
 
 ## Table of contents
 
-* [Problem description](./PROBLEM.md)
+* [Original problem description](./PROBLEM.md)
 * [Setup](#setup)
 * [Running the app](#running-the-app)
 * [Running the tests](#running-the-tests)
@@ -116,6 +116,6 @@ Expected output:
 
 ## Notes
 
-- This app uses [Command Pattern](https://refactoring.guru/design-patterns/command).
-- Robot knows abt Position, while Table does not know about Position. However, Table class can check if a coordinate [X, Y] is located within the Table's boundaries. 
-- CommandFactory class takes a string, parse it and convert it into corresponding command. The string can come from anywhere. The app currently use it to read commands from STDIN, but it can also be used to read commands from text file.
+* This app uses [Command Pattern](https://refactoring.guru/design-patterns/command).
+* Robot knows abt Position, while Table does not know about Position. However, Table class can check if a coordinate [X, Y] is located within the Table's boundaries.
+* CommandFactory class takes a string, parse it and convert it into corresponding command. The string can come from anywhere. The app currently use it to read commands from STDIN, but it can also be used to read commands from text file, for example, **in system test**.
