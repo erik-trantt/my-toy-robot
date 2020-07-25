@@ -7,6 +7,7 @@ end
 
 desc "Run tests"
 Rake::TestTask.new(:test) do |t|
+  t.libs << 'app'
   t.libs << 'test'
   t.test_files = FileList['test/test_*.rb']
 end

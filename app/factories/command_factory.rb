@@ -1,3 +1,4 @@
+require_relative '../models/position'
 require_relative '../models/place_command'
 require_relative '../models/move_command'
 require_relative '../models/left_command'
