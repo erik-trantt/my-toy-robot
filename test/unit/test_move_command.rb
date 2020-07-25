@@ -1,9 +1,9 @@
 require 'minitest/autorun'
-require_relative '../app/models/move_command'
-require_relative '../app/models/place_command'
-require_relative '../app/models/table'
-require_relative '../app/models/robot'
-require_relative '../app/models/position'
+require_relative '../../app/models/move_command'
+require_relative '../../app/models/place_command'
+require_relative '../../app/models/table'
+require_relative '../../app/models/robot'
+require_relative '../../app/models/position'
 
 # cases that MoveCommand will ignore
 describe MoveCommand, '#execute ignored cases' do

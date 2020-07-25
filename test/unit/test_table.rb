@@ -1,6 +1,6 @@
 require 'minitest/autorun'
-require_relative '../app/models/table'
-require_relative '../app/models/position'
+require_relative '../../app/models/table'
+require_relative '../../app/models/position'
 
 describe Table, '#initialize' do
   it 'table is square' do
