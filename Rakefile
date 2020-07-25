@@ -9,7 +9,7 @@ desc "Run unit tests"
 Rake::TestTask.new(:unit_test) do |t|
   t.libs << 'app'
   t.libs << 'test'
-  t.test_files = FileList['test/test_*.rb']
+  t.test_files = FileList['test/unit/test_*.rb']
 end
 
 desc "Run unit tests in verbose mode"

@@ -1,6 +1,6 @@
 require 'minitest/autorun'
-require_relative '../app/models/robot'
-require_relative '../app/models/table'
+require_relative '../../app/models/robot'
+require_relative '../../app/models/table'
 
 describe Robot, "#initialize" do
   it 'position is nill when initialized' do
