@@ -7,7 +7,7 @@ class LeftCommand
 
   ##
   # This method will make a robot turn left
-  # 
+  #
   # Conditions:
   #     will do nothing if robot is not placed
   def execute

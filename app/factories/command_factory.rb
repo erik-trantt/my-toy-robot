@@ -15,7 +15,7 @@ class CommandFactory
     @robot = robot
   end
 
-  ## 
+  ##
   # This parses user input and returns corresponding Command.
   # If input match no command, return nothing.
   def parse(input)
