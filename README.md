@@ -20,7 +20,7 @@
 
 ## Description
 
-This application is a simulation of a toy robot moving on a square tabletop with a dimension of 5 units x 5 units. The original problem description, constraints and examples of inputs and outputs can be found [here](./PROBLEM.md)
+This application is a simulation of a toy robot moving on a square tabletop with a dimension of 5 units x 5 units. The original problem description, constraints and examples of inputs and outputs can be found [here](./PROBLEM.md).
 
 User can use 1 of the following commands to controll the robot:
 
@@ -36,7 +36,7 @@ REPORT
 
 ### Environement
 
-This app runs on **Ruby 2.6.6** installed on your local machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/)
+This app runs on **Ruby 2.6.6** installed on your local machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/).
 
 ### Libraries
 
@@ -97,7 +97,7 @@ rake system_test_verbose
 
 ## Test cases
 
-There are 80 unit tests, and 6 system tests. The system tests include 3 examples provided by the [problem description](./PROBLEM.md), and 3 custom examples.
+There are 80 unit tests, and 6 system tests. The system tests include 3 examples provided by the [original problem description](./PROBLEM.md), and 3 custom examples.
 
 Data for system tests are stored within `test/data/` folder, for example:
 
@@ -184,4 +184,4 @@ Expected output:
 - Robot knows about Position, while Table does not know about Position. However, Table class can check if a coordinate [X, Y] is located within the Table's boundaries.
 - CommandFactory class takes a string, parse it and convert it into corresponding command. The string can come from anywhere. The app currently use it to read commands from STDIN, but it can also be used to read commands from text file, for example, **in system test**.
 
-&copy; Erik Tran
+&copy; 2020 Erik Tran
