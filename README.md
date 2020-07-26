@@ -1,8 +1,15 @@
 # Toy Robot Simulator
 
 ## Table of contents
+
+- [Toy Robot Simulator](#toy-robot-simulator)
+  - [Table of contents](#table-of-contents)
   - [Description](#description)
   - [Setup](#setup)
+    - [Environement](#environement)
+    - [Libraries](#libraries)
+    - [Prepare local development](#prepare-local-development)
+    - [File structure](#file-structure)
   - [Running the app](#running-the-app)
   - [Running the tests](#running-the-tests)
   - [Test cases](#test-cases)
@@ -15,12 +22,50 @@
 
 This application is a simulation of a toy robot moving on a square tabletop with a dimension of 5 units x 5 units. The original problem description, constraints and examples of inputs and outputs can be found [here](./PROBLEM.md)
 
+User can use 1 of the following commands to controll the robot:
+
+```text
+PLACE X,Y,F
+MOVE
+LEFT
+RIGHT
+REPORT
+```
+
 ## Setup
 
-1. This app runs on Ruby 2.6.6 installed on your local machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/)
-2. This app uses [Minitest](https://github.com/seattlerb/minitest), a built-in library since Ruby 2.3+
-3. Clone this project: `git clone git@github.com:erik-trantt/toy_robot.git`
-4. Change to the directory: `cd my-toy-robot`
+### Environement
+
+This app runs on **Ruby 2.6.6** installed on your local machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/)
+
+### Libraries
+
+- [Minitest](https://github.com/seattlerb/minitest): a built-in library since Ruby 2.3+\
+- [Rubocop](https://rubocop.org/): a Ruby code style checker and formatter.
+  - Installation: `gem install rubocop`
+  
+### Prepare local development
+
+1. Clone this project: `git clone git@github.com:erik-trantt/toy_robot.git`
+2. Change to the directory: `cd my-toy-robot`
+
+### File structure
+
+```text
+<root>
+  |
+  |-app/
+      |-factories/
+      |-models/
+  |-test/
+      |-data/
+      |-system/
+      |-unit/
+  |-app.rb
+  |-Rakefile
+  |-.rubocop.yml
+  |-README.md
+```
 
 ## Running the app
 
@@ -52,13 +97,27 @@ rake system_test_verbose
 
 ## Test cases
 
-There are 3 examples provided by the [problem description](./PROBLEM.md):
+There are 80 unit tests, and 6 system tests.
+The system tests include 3 examples provided by the [problem description](./PROBLEM.md), and 3 custom examples.
 
-* [Example a](./PROBLEM.md#example-a)
-* [Example b](./PROBLEM.md#example-b)
-* [Example c](./PROBLEM.md#example-c)
+Data for system tests are stored within `test/data/` folder, for example:
 
-And, there are 3 additional tests:
+```text
+test/
+    |-data/
+        |-test_data_example_a.txt
+        |-test_data_example_b.txt
+        |-test_data_example_c.txt
+        |-...
+```
+
+Original system test cases:
+
+- [Example a](./PROBLEM.md#example-a)
+- [Example b](./PROBLEM.md#example-b)
+- [Example c](./PROBLEM.md#example-c)
+
+Custom additional tests:
 
 ### Example D
 
@@ -122,6 +181,8 @@ Expected output:
 
 ## Notes
 
-* This app uses [Command Pattern](https://refactoring.guru/design-patterns/command).
-* Robot knows abt Position, while Table does not know about Position. However, Table class can check if a coordinate [X, Y] is located within the Table's boundaries.
-* CommandFactory class takes a string, parse it and convert it into corresponding command. The string can come from anywhere. The app currently use it to read commands from STDIN, but it can also be used to read commands from text file, for example, **in system test**.
+- This app uses [Command Pattern](https://refactoring.guru/design-patterns/command) to implement the logic behind the interface. It converts user input into corresponding commands. This pattern helps testing on the robot's actions easier.
+- Robot knows about Position, while Table does not know about Position. However, Table class can check if a coordinate [X, Y] is located within the Table's boundaries.
+- CommandFactory class takes a string, parse it and convert it into corresponding command. The string can come from anywhere. The app currently use it to read commands from STDIN, but it can also be used to read commands from text file, for example, **in system test**.
+
+&copy; Erik Tran
