@@ -2,8 +2,14 @@
 
 ## Table of contents
 
+- [Toy Robot Simulator](#toy-robot-simulator)
+  - [Table of contents](#table-of-contents)
   - [Description](#description)
   - [Setup](#setup)
+    - [Environement](#environement)
+    - [Libraries](#libraries)
+    - [Prepare local development](#prepare-local-development)
+    - [File structure](#file-structure)
   - [Running the app](#running-the-app)
   - [Running the tests](#running-the-tests)
   - [Test cases](#test-cases)
@@ -16,9 +22,9 @@
 
 This application is a simulation of a toy robot moving on a square tabletop with a dimension of 5 units x 5 units. The original problem description, constraints and examples of inputs and outputs can be found [here](./PROBLEM.md)
 
-
 User can use 1 of the following commands to controll the robot:
-```
+
+```text
 PLACE X,Y,F
 MOVE
 LEFT
@@ -34,8 +40,8 @@ This app runs on **Ruby 2.6.6** installed on your local machine. If you need hel
 
 ### Libraries
 
-- [Minitest](https://github.com/seattlerb/minitest): a built-in library since Ruby 2.3+\
-- [Rubocop](https://rubocop.org/): a Ruby code style checker and formatter. 
+- [Minitest](https://github.com/seattlerb/minitest): a built-in library since Ruby 2.3+
+- [Rubocop](https://rubocop.org/): a Ruby code style checker and formatter
   - Installation: `gem install rubocop`
   
 ### Prepare local development
@@ -91,8 +97,7 @@ rake system_test_verbose
 
 ## Test cases
 
-There are 80 unit tests, and 6 system tests.
-The system tests include 3 examples provided by the [problem description](./PROBLEM.md), and 3 custom examples.
+There are 80 unit tests, and 6 system tests. The system tests include 3 examples provided by the [problem description](./PROBLEM.md), and 3 custom examples.
 
 Data for system tests are stored within `test/data/` folder, for example:
 
@@ -107,9 +112,9 @@ test/
 
 Original system test cases:
 
-* [Example a](./PROBLEM.md#example-a)
-* [Example b](./PROBLEM.md#example-b)
-* [Example c](./PROBLEM.md#example-c)
+- [Example a](./PROBLEM.md#example-a)
+- [Example b](./PROBLEM.md#example-b)
+- [Example c](./PROBLEM.md#example-c)
 
 Custom additional tests:
 
@@ -175,8 +180,8 @@ Expected output:
 
 ## Notes
 
-* This app uses [Command Pattern](https://refactoring.guru/design-patterns/command) to implement the logic behind the interface. It converts user input into corresponding commands. This pattern helps testing on the robot's actions easier.
-* Robot knows about Position, while Table does not know about Position. However, Table class can check if a coordinate [X, Y] is located within the Table's boundaries.
-* CommandFactory class takes a string, parse it and convert it into corresponding command. The string can come from anywhere. The app currently use it to read commands from STDIN, but it can also be used to read commands from text file, for example, **in system test**.
+- This app uses [Command Pattern](https://refactoring.guru/design-patterns/command) to implement the logic behind the interface. It converts user input into corresponding commands. This pattern helps testing on the robot's actions easier.
+- Robot knows about Position, while Table does not know about Position. However, Table class can check if a coordinate [X, Y] is located within the Table's boundaries.
+- CommandFactory class takes a string, parse it and convert it into corresponding command. The string can come from anywhere. The app currently use it to read commands from STDIN, but it can also be used to read commands from text file, for example, **in system test**.
 
 &copy; Erik Tran
