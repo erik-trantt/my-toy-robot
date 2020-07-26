@@ -20,7 +20,8 @@ loop do
   print '> '
   input = gets.chomp
 
+  # generate command from user input
   command = factory.parse(input)
-
+  # execute command if command is valid
   command&.execute
 end
