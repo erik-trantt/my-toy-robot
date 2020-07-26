@@ -48,11 +48,6 @@ bundle install
 - [minitest](https://github.com/seattlerb/minitest): a built-in library since Ruby 2.3+
 - [rake](https://rubygems.org/gems/rake): a Make-like program implemented in Ruby
 - [rubocop](https://rubygems.org/gems/rubocop): a Ruby code style checker and formatter
-  
-Handle errors:
-  - Run `gem update rubocop` if you already have the gem and `Error: unrecognized cop ... found in .rubocop.yml...` 
-  
-
 
 ### Prepare local development
 
