@@ -16,17 +16,50 @@
 
 This application is a simulation of a toy robot moving on a square tabletop with a dimension of 5 units x 5 units. The original problem description, constraints and examples of inputs and outputs can be found [here](./PROBLEM.md)
 
+
+User can use 1 of the following commands to controll the robot:
+```
+PLACE X,Y,F
+MOVE
+LEFT
+RIGHT
+REPORT
+```
+
 ## Setup
 
-1. This app runs on Ruby 2.6.6 installed on your local machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/)
-2. This app uses:
+### Environement
 
-   - [Minitest](https://github.com/seattlerb/minitest): a built-in library since Ruby 2.3+\
-   - [Rubocop](https://rubocop.org/): a Ruby code style checker and formatter. 
-      - Installation: `gem install rubocop`
+This app runs on **Ruby 2.6.6** installed on your local machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/)
 
-3. Clone this project: `git clone git@github.com:erik-trantt/toy_robot.git`
-4. Change to the directory: `cd my-toy-robot`
+### Libraries
+
+- [Minitest](https://github.com/seattlerb/minitest): a built-in library since Ruby 2.3+\
+- [Rubocop](https://rubocop.org/): a Ruby code style checker and formatter. 
+  - Installation: `gem install rubocop`
+  
+### Prepare local development
+
+1. Clone this project: `git clone git@github.com:erik-trantt/toy_robot.git`
+2. Change to the directory: `cd my-toy-robot`
+
+### File structure
+
+```text
+<root>
+  |
+  |-app/
+      |-factories/
+      |-models/
+  |-test/
+      |-data/
+      |-system/
+      |-unit/
+  |-app.rb
+  |-Rakefile
+  |-.rubocop.yml
+  |-README.md
+```
 
 ## Running the app
 
@@ -58,13 +91,27 @@ rake system_test_verbose
 
 ## Test cases
 
-There are 3 examples provided by the [problem description](./PROBLEM.md):
+There are 80 unit tests, and 6 system tests.
+The system tests include 3 examples provided by the [problem description](./PROBLEM.md), and 3 custom examples.
+
+Data for system tests are stored within `test/data/` folder, for example:
+
+```text
+test/
+    |-data/
+        |-test_data_example_a.txt
+        |-test_data_example_b.txt
+        |-test_data_example_c.txt
+        |-...
+```
+
+Original system test cases:
 
 * [Example a](./PROBLEM.md#example-a)
 * [Example b](./PROBLEM.md#example-b)
 * [Example c](./PROBLEM.md#example-c)
 
-And, there are 3 additional tests:
+Custom additional tests:
 
 ### Example D
 

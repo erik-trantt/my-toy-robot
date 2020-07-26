@@ -11,7 +11,7 @@ class MoveCommand
   # Before moving, check if the new position is a valid position on the table.
   # If valid, change to new position.
   # If not valid, make no change.
-  # 
+  #
   # Conditions:
   #     will do nothing if robot is not placed
   def execute

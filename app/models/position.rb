@@ -27,7 +27,8 @@ class Position
   end
 
   ##
-  # This method check the @facing attribute for its current direction, then trigger the move action associating with that direction 
+  # This method check the @facing attribute for its current direction,
+  # then trigger the move action associating with that direction.
   def move
     case @facing.downcase.to_sym
     when :north then move_north
