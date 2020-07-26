@@ -1,6 +1,7 @@
 # Toy Robot Simulator
 
 ## Table of contents
+
   - [Description](#description)
   - [Setup](#setup)
   - [Running the app](#running-the-app)
@@ -18,7 +19,12 @@ This application is a simulation of a toy robot moving on a square tabletop with
 ## Setup
 
 1. This app runs on Ruby 2.6.6 installed on your local machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/)
-2. This app uses [Minitest](https://github.com/seattlerb/minitest), a built-in library since Ruby 2.3+
+2. This app uses:
+
+   - [Minitest](https://github.com/seattlerb/minitest): a built-in library since Ruby 2.3+\
+   - [Rubocop](https://rubocop.org/): a Ruby code style checker and formatter. 
+      - Installation: `gem install rubocop`
+
 3. Clone this project: `git clone git@github.com:erik-trantt/toy_robot.git`
 4. Change to the directory: `cd my-toy-robot`
 
@@ -122,6 +128,8 @@ Expected output:
 
 ## Notes
 
-* This app uses [Command Pattern](https://refactoring.guru/design-patterns/command).
-* Robot knows abt Position, while Table does not know about Position. However, Table class can check if a coordinate [X, Y] is located within the Table's boundaries.
+* This app uses [Command Pattern](https://refactoring.guru/design-patterns/command) to implement the logic behind the interface. It converts user input into corresponding commands.
+* Robot knows about Position, while Table does not know about Position. However, Table class can check if a coordinate [X, Y] is located within the Table's boundaries.
 * CommandFactory class takes a string, parse it and convert it into corresponding command. The string can come from anywhere. The app currently use it to read commands from STDIN, but it can also be used to read commands from text file, for example, **in system test**.
+
+&copy; Erik Tran
