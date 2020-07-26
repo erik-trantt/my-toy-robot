@@ -5,8 +5,8 @@ require_relative '../models/left_command'
 require_relative '../models/right_command'
 require_relative '../models/report_command'
 
-# class Controller
-# app controller
+##
+# class CommandFactory
 class CommandFactory
   PLACE_COMMAND_PATTERN = /^PLACE (\d),(\d),(NORTH|SOUTH|EAST|WEST)$/.freeze
 
@@ -15,6 +15,9 @@ class CommandFactory
     @robot = robot
   end
 
+  ##
+  # This parses user input and returns corresponding Command.
+  # If input match no command, return nothing.
   def parse(input)
     case input
     when PLACE_COMMAND_PATTERN then

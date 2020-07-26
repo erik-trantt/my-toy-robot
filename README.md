@@ -40,8 +40,8 @@ This app runs on **Ruby 2.6.6** installed on your local machine. If you need hel
 
 ### Libraries
 
-- [Minitest](https://github.com/seattlerb/minitest): a built-in library since Ruby 2.3+\
-- [Rubocop](https://rubocop.org/): a Ruby code style checker and formatter.
+- [Minitest](https://github.com/seattlerb/minitest): a built-in library since Ruby 2.3+
+- [Rubocop](https://rubocop.org/): a Ruby code style checker and formatter
   - Installation: `gem install rubocop`
   
 ### Prepare local development
@@ -97,8 +97,7 @@ rake system_test_verbose
 
 ## Test cases
 
-There are 80 unit tests, and 6 system tests.
-The system tests include 3 examples provided by the [problem description](./PROBLEM.md), and 3 custom examples.
+There are 80 unit tests, and 6 system tests. The system tests include 3 examples provided by the [problem description](./PROBLEM.md), and 3 custom examples.
 
 Data for system tests are stored within `test/data/` folder, for example:
 
