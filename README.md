@@ -128,7 +128,7 @@ Expected output:
 
 ## Notes
 
-* This app uses [Command Pattern](https://refactoring.guru/design-patterns/command) to implement the logic behind the interface. It converts user input into corresponding commands.
+* This app uses [Command Pattern](https://refactoring.guru/design-patterns/command) to implement the logic behind the interface. It converts user input into corresponding commands. This pattern helps testing on the robot's actions easier.
 * Robot knows about Position, while Table does not know about Position. However, Table class can check if a coordinate [X, Y] is located within the Table's boundaries.
 * CommandFactory class takes a string, parse it and convert it into corresponding command. The string can come from anywhere. The app currently use it to read commands from STDIN, but it can also be used to read commands from text file, for example, **in system test**.
 
