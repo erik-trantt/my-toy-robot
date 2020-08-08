@@ -1,4 +1,5 @@
-require 'minitest/autorun'
+# require 'minitest/autorun'
+require_relative '../test_helper'
 require_relative '../../app/models/report_command'
 require_relative '../../app/models/robot'
 require_relative '../../app/models/position'
