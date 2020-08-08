@@ -1,4 +1,5 @@
-require 'minitest/autorun'
+# require 'minitest/autorun'
+require_relative '../test_helper'
 require_relative '../data/file_helper'
 require_relative '../data/output_helper'
 require_relative '../../app/factories/command_factory'
@@ -11,15 +12,16 @@ describe "System Test" do
     table = Table.new(5, 5)
     robot = Robot.new
     @factory = CommandFactory.new(table, robot)
+    @input_file = ''
   end
 
+  let (:inputs) { FileHelper.readlines_to_array(@input_file) }
+  let (:actual) { OutputHelper.capture_output(@factory, inputs) }
+
   describe 'Example #a' do
-    let (:input_file) { 'test/data/test_data_example_a.txt' }
-
+    
     it 'return "0,1,NORTH\n"' do
-      inputs = FileHelper.readlines_to_array(input_file)
-      actual = OutputHelper.capture_output(@factory, inputs)
-
+      @input_file = 'test/data/test_data_example_a.txt'
       expected = "0,1,NORTH\n"
 
       _(actual).must_equal expected
@@ -27,12 +29,9 @@ describe "System Test" do
   end
 
   describe 'Example #b' do
-    let (:input_file) { 'test/data/test_data_example_b.txt' }
-
+    
     it 'return "0,0,WEST\n"' do
-      inputs = FileHelper.readlines_to_array(input_file)
-      actual = OutputHelper.capture_output(@factory, inputs)
-
+      @input_file = 'test/data/test_data_example_b.txt'
       expected = "0,0,WEST\n"
 
       _(actual).must_equal expected
@@ -40,12 +39,9 @@ describe "System Test" do
   end
 
   describe 'Example #c' do
-    let (:input_file) { 'test/data/test_data_example_c.txt' }
-
+    
     it 'return "3,3,NORTH\n"' do
-      inputs = FileHelper.readlines_to_array(input_file)
-      actual = OutputHelper.capture_output(@factory, inputs)
-
+      @input_file = 'test/data/test_data_example_c.txt'
       expected = "3,3,NORTH\n"
 
       _(actual).must_equal expected
@@ -53,12 +49,9 @@ describe "System Test" do
   end
 
   describe 'Example #d' do
-    let (:input_file) { 'test/data/test_data_example_d.txt' }
-
+    
     it 'from "0,0,NORTH" move 5 times then return "0,4,NORTH\n"' do
-      inputs = FileHelper.readlines_to_array(input_file)
-      actual = OutputHelper.capture_output(@factory, inputs)
-
+      @input_file = 'test/data/test_data_example_d.txt'
       expected = "0,4,NORTH\n"
 
       _(actual).must_equal expected
@@ -66,12 +59,9 @@ describe "System Test" do
   end
 
   describe 'Example #e' do
-    let (:input_file) { 'test/data/test_data_example_e.txt' }
-
+    
     it 'from "0,0,EAST" move 2 times, turn left, move 4 times, then return "2,4,NORTH\n"' do
-      inputs = FileHelper.readlines_to_array(input_file)
-      actual = OutputHelper.capture_output(@factory, inputs)
-
+      @input_file = 'test/data/test_data_example_e.txt'
       expected = "2,4,NORTH\n"
 
       _(actual).must_equal expected
@@ -79,12 +69,9 @@ describe "System Test" do
   end
 
   describe 'Example #f' do
-    let (:input_file) { 'test/data/test_data_example_f.txt' }
-
+    
     it 'from "2,2,SOUTH" move 3 times, turn right, move 3 times, then return "0,0,WEST\n"' do
-      inputs = FileHelper.readlines_to_array(input_file)
-      actual = OutputHelper.capture_output(@factory, inputs)
-
+      @input_file = 'test/data/test_data_example_f.txt'
       expected = "2,0,SOUTH\n0,0,WEST\n"
 
       _(actual).must_equal expected
