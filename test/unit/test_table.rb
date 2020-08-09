@@ -1,4 +1,5 @@
-require 'minitest/autorun'
+# require 'minitest/autorun'
+require_relative '../test_helper'
 require_relative '../../app/models/table'
 require_relative '../../app/models/position'
 
@@ -14,8 +15,6 @@ end
 describe Table, '#position_valid?' do
   before do
     @table = Table.new(5, 5)
-    @expected_false = false
-    @expected_true = true
   end
 
   it 'return true when 0 <= X, Y < 5' do

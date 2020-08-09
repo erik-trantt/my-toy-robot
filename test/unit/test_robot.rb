@@ -1,9 +1,12 @@
-require 'minitest/autorun'
+# require 'minitest/autorun'
+require_relative '../test_helper'
 require_relative '../../app/models/robot'
 require_relative '../../app/models/table'
 
+Minitest::Test.make_my_diffs_pretty!
+
 describe Robot, "#initialize" do
-  it 'position is nill when initialized' do
+  it 'position is nil when initialized' do
     robot = Robot.new
     actual = robot.position
     expected = nil
@@ -13,19 +16,23 @@ describe Robot, "#initialize" do
 end
 
 describe Robot, "#placed?" do
+  before do
+    @position = nil
+  end
+
+  let (:actual) { Robot.new(@position).placed? }
+
   it 'return true if position is an instance of Position' do
-    position = Position.new(1, 3, 'NORTH')
-    robot = Robot.new(position)
-    actual = robot.placed?
+    @position = Position.new(1, 3, 'NORTH')
+
     expected = true
 
     _(actual).must_be_same_as expected
   end
 
   it 'return false if position is nil' do
-    position = nil
-    robot = Robot.new(position)
-    actual = robot.placed?
+    @position = nil
+
     expected = false
 
     _(actual).must_be_same_as expected
@@ -33,27 +40,23 @@ describe Robot, "#placed?" do
 end
 
 describe Robot, '#report_position' do
-  it 'return "Not in place" when robot is just initalized' do
-    robot = Robot.new
-    actual = robot.report_position
+  before do
+    @position = nil
+  end
+
+  let (:actual) { Robot.new(@position).report_position }
+
+  it 'return "Not in place" when robot is just initalized & position is nothing' do
+    @position = nil
+
     expected = 'Not in place'
 
     _(actual).must_equal expected
   end
 
   it 'return "Not in place" when position is nothing' do
-    position = nil
-    robot = Robot.new(position)
-    actual = robot.report_position
-    expected = 'Not in place'
+    @position = Position.new(1, 3, 'NORTH')
 
-    _(actual).must_equal expected
-  end
-
-  it 'return "Not in place" when position is nothing' do
-    position = Position.new(1, 3, 'NORTH')
-    robot = Robot.new(position)
-    actual = robot.report_position
     expected = '1,3,NORTH'
 
     _(actual).must_equal expected

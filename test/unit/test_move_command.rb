@@ -1,4 +1,5 @@
-require 'minitest/autorun'
+# require 'minitest/autorun'
+require_relative '../test_helper'
 require_relative '../../app/models/move_command'
 require_relative '../../app/models/place_command'
 require_relative '../../app/models/table'
